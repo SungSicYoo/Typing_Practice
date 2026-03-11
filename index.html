@@ -225,6 +225,7 @@ function BattleGame({lang,onMenu,userId}){
   const myIdRef=useRef('p_'+Math.random().toString(36).substr(2,8));
   const joinTimerRef=useRef(null);
   const initRecvRef=useRef(false);
+  const hostInitSentRef=useRef(false);
   
   projR.current=projs;pbR.current=pBlocks;ebR.current=eBlocks;winRef.current=winner;
 
@@ -279,6 +280,7 @@ function BattleGame({lang,onMenu,userId}){
     const topic='jbu-battle-'+code;
     topicRef.current=topic;
     initRecvRef.current=false;
+    hostInitSentRef.current=false;
     setConnStatus('서버 연결 중...');
 
     const es=new EventSource(RELAY+'/'+topic+'/sse?since=10s');
@@ -304,7 +306,8 @@ function BattleGame({lang,onMenu,userId}){
         const data=JSON.parse(ev.message);
         if(data._s===myIdRef.current)return;
 
-        if(data.type==='join'&&isHost){
+        if(data.type==='join'&&isHost&&!hostInitSentRef.current){
+          hostInitSentRef.current=true;
           if(joinTimerRef.current){clearInterval(joinTimerRef.current);joinTimerRef.current=null}
           const w1=getWord(Math.random()<0.3),w2=getWord(Math.random()<0.3);
           const initMsg=JSON.stringify({type:'init',w1,w2,_s:myIdRef.current});
