@@ -48,30 +48,37 @@ const C2P={Backquote:[0,0],Digit1:[0,1],Digit2:[0,2],Digit3:[0,3],Digit4:[0,4],D
 const KB_EN=[[{key:"`",shift:"~",finger:"leftPinky",w:1},{key:"1",shift:"!",finger:"leftPinky",w:1},{key:"2",shift:"@",finger:"leftRing",w:1},{key:"3",shift:"#",finger:"leftMiddle",w:1},{key:"4",shift:"$",finger:"leftIndex",w:1},{key:"5",shift:"%",finger:"leftIndex",w:1},{key:"6",shift:"^",finger:"rightIndex",w:1},{key:"7",shift:"&",finger:"rightIndex",w:1},{key:"8",shift:"*",finger:"rightMiddle",w:1},{key:"9",shift:"(",finger:"rightRing",w:1},{key:"0",shift:")",finger:"rightPinky",w:1},{key:"-",shift:"_",finger:"rightPinky",w:1},{key:"=",shift:"+",finger:"rightPinky",w:1},{key:"BS",label:"\u2190",finger:"rightPinky",w:2}],[{key:"Tab",label:"Tab",finger:"leftPinky",w:1.5},{key:"q",shift:"Q",finger:"leftPinky",w:1},{key:"w",shift:"W",finger:"leftRing",w:1},{key:"e",shift:"E",finger:"leftMiddle",w:1},{key:"r",shift:"R",finger:"leftIndex",w:1},{key:"t",shift:"T",finger:"leftIndex",w:1},{key:"y",shift:"Y",finger:"rightIndex",w:1},{key:"u",shift:"U",finger:"rightIndex",w:1},{key:"i",shift:"I",finger:"rightMiddle",w:1},{key:"o",shift:"O",finger:"rightRing",w:1},{key:"p",shift:"P",finger:"rightPinky",w:1},{key:"[",shift:"{",finger:"rightPinky",w:1},{key:"]",shift:"}",finger:"rightPinky",w:1},{key:"\\",shift:"|",finger:"rightPinky",w:1.5}],[{key:"Caps",label:"Caps",finger:"leftPinky",w:1.75},{key:"a",shift:"A",finger:"leftPinky",w:1},{key:"s",shift:"S",finger:"leftRing",w:1},{key:"d",shift:"D",finger:"leftMiddle",w:1},{key:"f",shift:"F",finger:"leftIndex",w:1,home:true},{key:"g",shift:"G",finger:"leftIndex",w:1},{key:"h",shift:"H",finger:"rightIndex",w:1},{key:"j",shift:"J",finger:"rightIndex",w:1,home:true},{key:"k",shift:"K",finger:"rightMiddle",w:1},{key:"l",shift:"L",finger:"rightRing",w:1},{key:";",shift:":",finger:"rightPinky",w:1},{key:"'",shift:"\"",finger:"rightPinky",w:1},{key:"Enter",label:"Enter",finger:"rightPinky",w:2.25}],[{key:"Shift",label:"Shift",finger:"leftPinky",w:2.25},{key:"z",shift:"Z",finger:"leftPinky",w:1},{key:"x",shift:"X",finger:"leftRing",w:1},{key:"c",shift:"C",finger:"leftMiddle",w:1},{key:"v",shift:"V",finger:"leftIndex",w:1},{key:"b",shift:"B",finger:"leftIndex",w:1},{key:"n",shift:"N",finger:"rightIndex",w:1},{key:"m",shift:"M",finger:"rightIndex",w:1},{key:",",shift:"<",finger:"rightMiddle",w:1},{key:".",shift:">",finger:"rightRing",w:1},{key:"/",shift:"?",finger:"rightPinky",w:1},{key:"ShiftR",label:"Shift",finger:"rightPinky",w:2.75}],[{key:"Ctrl",label:"Ctrl",finger:"leftPinky",w:1.5},{key:"Alt",label:"Alt",finger:"leftPinky",w:1.25},{key:" ",label:"Space",finger:"thumb",w:7.5},{key:"AltR",label:"Alt",finger:"rightPinky",w:1.25},{key:"CtrlR",label:"Ctrl",finger:"rightPinky",w:1.5}]];
 const KB_KR=[[{key:"`",shift:"~",finger:"leftPinky",w:1},{key:"1",shift:"!",finger:"leftPinky",w:1},{key:"2",shift:"@",finger:"leftRing",w:1},{key:"3",shift:"#",finger:"leftMiddle",w:1},{key:"4",shift:"$",finger:"leftIndex",w:1},{key:"5",shift:"%",finger:"leftIndex",w:1},{key:"6",shift:"^",finger:"rightIndex",w:1},{key:"7",shift:"&",finger:"rightIndex",w:1},{key:"8",shift:"*",finger:"rightMiddle",w:1},{key:"9",shift:"(",finger:"rightRing",w:1},{key:"0",shift:")",finger:"rightPinky",w:1},{key:"-",shift:"_",finger:"rightPinky",w:1},{key:"=",shift:"+",finger:"rightPinky",w:1},{key:"BS",label:"\u2190",finger:"rightPinky",w:2}],[{key:"Tab",label:"Tab",finger:"leftPinky",w:1.5},{key:"ㅂ",shift:"ㅃ",finger:"leftPinky",w:1},{key:"ㅈ",shift:"ㅉ",finger:"leftRing",w:1},{key:"ㄷ",shift:"ㄸ",finger:"leftMiddle",w:1},{key:"ㄱ",shift:"ㄲ",finger:"leftIndex",w:1},{key:"ㅅ",shift:"ㅆ",finger:"leftIndex",w:1},{key:"ㅛ",shift:"ㅛ",finger:"rightIndex",w:1},{key:"ㅕ",shift:"ㅕ",finger:"rightIndex",w:1},{key:"ㅑ",shift:"ㅑ",finger:"rightMiddle",w:1},{key:"ㅐ",shift:"ㅒ",finger:"rightRing",w:1},{key:"ㅔ",shift:"ㅖ",finger:"rightPinky",w:1},{key:"[",shift:"{",finger:"rightPinky",w:1},{key:"]",shift:"}",finger:"rightPinky",w:1},{key:"\\",shift:"|",finger:"rightPinky",w:1.5}],[{key:"Caps",label:"Caps",finger:"leftPinky",w:1.75},{key:"ㅁ",shift:"ㅁ",finger:"leftPinky",w:1},{key:"ㄴ",shift:"ㄴ",finger:"leftRing",w:1},{key:"ㅇ",shift:"ㅇ",finger:"leftMiddle",w:1},{key:"ㄹ",shift:"ㄹ",finger:"leftIndex",w:1,home:true},{key:"ㅎ",shift:"ㅎ",finger:"leftIndex",w:1},{key:"ㅗ",shift:"ㅗ",finger:"rightIndex",w:1},{key:"ㅓ",shift:"ㅓ",finger:"rightIndex",w:1,home:true},{key:"ㅏ",shift:"ㅏ",finger:"rightMiddle",w:1},{key:"ㅣ",shift:"ㅣ",finger:"rightRing",w:1},{key:";",shift:":",finger:"rightPinky",w:1},{key:"'",shift:"\"",finger:"rightPinky",w:1},{key:"Enter",label:"Enter",finger:"rightPinky",w:2.25}],[{key:"Shift",label:"Shift",finger:"leftPinky",w:2.25},{key:"ㅋ",shift:"ㅋ",finger:"leftPinky",w:1},{key:"ㅌ",shift:"ㅌ",finger:"leftRing",w:1},{key:"ㅊ",shift:"ㅊ",finger:"leftMiddle",w:1},{key:"ㅍ",shift:"ㅍ",finger:"leftIndex",w:1},{key:"ㅠ",shift:"ㅠ",finger:"leftIndex",w:1},{key:"ㅜ",shift:"ㅜ",finger:"rightIndex",w:1},{key:"ㅡ",shift:"ㅡ",finger:"rightIndex",w:1},{key:",",shift:"<",finger:"rightMiddle",w:1},{key:".",shift:">",finger:"rightRing",w:1},{key:"/",shift:"?",finger:"rightPinky",w:1},{key:"ShiftR",label:"Shift",finger:"rightPinky",w:2.75}],[{key:"Ctrl",label:"Ctrl",finger:"leftPinky",w:1.5},{key:"한/영",label:"한/영",finger:"leftPinky",w:1.25},{key:" ",label:"Space",finger:"thumb",w:7.5},{key:"한자",label:"한자",finger:"rightPinky",w:1.25},{key:"CtrlR",label:"Ctrl",finger:"rightPinky",w:1.5}]];
 
-const EN_KEYS={home:["f","j","d","k","s","l","a",";"],top:["q","w","e","r","t","y","u","i","o","p"],bot:["z","x","c","v","b","n","m",",","."],all:["a","s","d","f","g","h","j","k","l",";","q","w","e","r","t","y","u","i","o","p","z","x","c","v","b","n","m"]};
-const KR_WORDS={home:["아","어","오","우","이","으","알","얼","올","울","일","을","말","널","할","날","길","을","알","아이","우리","이리","올해","이날","말이","날이","길이","얼른","아래","오래","어른","으로","이를","올라","알게","얼마","울며","일이","을의","말을","할일","널리","날을","길을"],top:["바","자","다","가","사","요","여","야","개","게","배","재","대","새","바다","자기","다시","가게","사요","여기","개요","배가","재다","대자","새가","가요","자바","바게","사다","여자","야구","가사","다가","요기","배재"],bot:["카","타","차","파","유","우","크","트","츠","커","투","추","카드","타자","차트","파도","유리","우주","크기","트럭","커피","투자","추가","파트","쿠키","투명","추석","카메라","타이밍","차량"],all:["나는","오늘","아침에","학교에","갔다","바람이","시원하게","불어서","기분이","좋았다","친구들과","함께","공부를","했다","저녁에","책을","읽었다","하루가","빠르게","지나갔다","내일도","좋은","하루가","되기를","바란다","점심에","맛있는","음식을","먹었다","오후에","운동을","했다","집에서","텔레비전을","봤다","부모님께","전화를","드렸다","일찍","잠자리에","들었다","꿈을","꾸었다","새벽에","일어났다","커피를","마셨다","산책을","나갔다","날씨가","화창했다"]};
+const EN_KEYS={mid:["a","s","d","f","g","h","j","k","l"],top:["q","w","e","r","t","y","u","i","o","p"],bot:["z","x","c","v","b","n","m"],all:["a","s","d","f","g","h","j","k","l","q","w","e","r","t","y","u","i","o","p","z","x","c","v","b","n","m"]};
+const KR_WORDS={mid:["아","어","오","이","알","얼","올","일","말","널","할","날","밀","몰","놀","홀","힘","남","님","맘","홈","안","인","만","한","민","혼","론","란","몸","놈","림","나","너","노","니","마","머","모","미","하","허","호","히","라","러","로","리","나라","머리","하나","오리","놀이","얼마","이론","아이","아니","이리","논리","만남","이민","노인","오만","한인","모임","어림","나인","한말","놀림","인민","혼란","논란","만인","나날","나이","말이","힘이","몰이","날이","알림","하인","몰아","할인","어머니","나홀로"],top:["개","게","배","세","대","새","재","제","교","때","째","빼","깨","뼈","색","격","벽","겹","셋","갯","교대","세배","재배","세제","대세","제대","교제","교배","새벽","대대"],bot:["추","투","크","트","푸","츠","쿠","프","츄","튜","쿠크","추크","투크","크트","트크"],all:["나는","오늘","아침에","학교에","갔다","바람이","시원하게","불어서","기분이","좋았다","친구들과","함께","공부를","했다","저녁에","책을","읽었다","하루가","빠르게","지나갔다","내일도","좋은","하루가","되기를","바란다","점심에","맛있는","음식을","먹었다","오후에","운동을","했다","집에서","텔레비전을","봤다","부모님께","전화를","드렸다","일찍","잠자리에","들었다","꿈을","꾸었다","새벽에","일어났다","커피를","마셨다","산책을","나갔다","날씨가","화창했다"]};
+const CHO_I={"ㄱ":0,"ㄲ":1,"ㄴ":2,"ㄷ":3,"ㄸ":4,"ㄹ":5,"ㅁ":6,"ㅂ":7,"ㅃ":8,"ㅅ":9,"ㅆ":10,"ㅇ":11,"ㅈ":12,"ㅉ":13,"ㅊ":14,"ㅋ":15,"ㅌ":16,"ㅍ":17,"ㅎ":18};
+const JUNG_I={"ㅏ":0,"ㅐ":1,"ㅑ":2,"ㅒ":3,"ㅓ":4,"ㅔ":5,"ㅕ":6,"ㅖ":7,"ㅗ":8,"ㅘ":9,"ㅙ":10,"ㅚ":11,"ㅛ":12,"ㅜ":13,"ㅝ":14,"ㅞ":15,"ㅟ":16,"ㅠ":17,"ㅡ":18,"ㅢ":19,"ㅣ":20};
+const JONG_I={"":0,"ㄱ":1,"ㄲ":2,"ㄴ":4,"ㄷ":7,"ㄹ":8,"ㅁ":16,"ㅂ":17,"ㅅ":19,"ㅆ":20,"ㅇ":21,"ㅈ":22,"ㅊ":23,"ㅋ":24,"ㅌ":25,"ㅍ":26,"ㅎ":27};
+function mkSyl(c,j,f){const ci=CHO_I[c],ji=JUNG_I[j],fi=JONG_I[f!=null?f:""];if(ci==null||ji==null||fi==null)return"";return String.fromCharCode(0xAC00+ci*21*28+ji*28+fi)}
+const KR_JAMO={mid:{cho:["ㅁ","ㄴ","ㅇ","ㄹ","ㅎ"],jung:["ㅗ","ㅓ","ㅏ","ㅣ"],jong:["","ㅁ","ㄴ","ㅇ","ㄹ","ㅎ"]},top:{cho:["ㅂ","ㅈ","ㄷ","ㄱ","ㅅ"],jung:["ㅛ","ㅕ","ㅑ","ㅐ","ㅔ"],jong:["","ㄱ","ㄷ","ㅂ","ㅅ","ㅈ"]},bot:{cho:["ㅋ","ㅌ","ㅊ","ㅍ"],jung:["ㅠ","ㅜ","ㅡ"],jong:[""]}};
+function genKrSylGroup(row,len){let s="";for(let i=0;i<len;i++){const j=KR_JAMO[row];s+=mkSyl(pickR(j.cho),pickR(j.jung),pickR(j.jong))}return s}
 
 function genPosText(lang,cat){
   if(lang==="en"){
     let pool;
-    if(cat.includes("홈키 (기본)"))pool=EN_KEYS.home;
-    else if(cat.includes("홈키 확장"))pool=[...EN_KEYS.home,"g","h"];
+    if(cat.includes("가운데줄"))pool=EN_KEYS.mid;
     else if(cat.includes("윗줄"))pool=EN_KEYS.top;
     else if(cat.includes("아랫줄"))pool=EN_KEYS.bot;
     else pool=EN_KEYS.all;
     const groups=[];for(let i=0;i<25;i++){const gl=2+Math.floor(Math.random()*3);let g="";for(let j=0;j<gl;j++)g+=pickR(pool);groups.push(g)}
     return groups.join(" ");
   }else{
-    let pool;
-    if(cat.includes("홈키 (기본)"))pool=KR_WORDS.home;
-    else if(cat.includes("홈키 확장"))pool=KR_WORDS.home;
-    else if(cat.includes("윗줄"))pool=KR_WORDS.top;
-    else if(cat.includes("아랫줄"))pool=KR_WORDS.bot;
-    else pool=KR_WORDS.all;
-    return shuffle(pool).slice(0,20).join(" ");
+    let row=null;
+    if(cat.includes("가운데줄"))row="mid";
+    else if(cat.includes("윗줄"))row="top";
+    else if(cat.includes("아랫줄"))row="bot";
+    if(!row)return shuffle(KR_WORDS.all).slice(0,20).join(" ");
+    const words=shuffle(KR_WORDS[row]);
+    const syls=[];for(let i=0;i<15;i++)syls.push(genKrSylGroup(row,1+Math.floor(Math.random()*2)));
+    const mixed=[...words,...syls];
+    return shuffle(mixed).slice(0,20).join(" ");
   }
 }
-const POS_CATS={en:["홈키 (기본)","홈키 확장","윗줄 (QWER)","아랫줄 (ZXCV)","전체 연습"],kr:["홈키 (기본)","홈키 확장","윗줄 연습","아랫줄 연습","전체 연습"]};
+const POS_CATS={en:["가운데줄 연습","윗줄 (QWER)","아랫줄 (ZXCV)","전체 연습"],kr:["가운데줄 연습","윗줄 연습","아랫줄 연습","전체 연습"]};
 
 const WORD_POOL={en:{
 "기초 단어":["the","be","to","of","and","a","in","that","have","it","for","not","on","with","he","as","you","do","at","this","but","his","by","from","they","we","say","her","she","or","an","will","my","one","all","would","there","their","what","so","up","out","if","can","no","when","who","get","has","him","how","its","may","new","now","old","see","two","way","did","got","let","man","own","too","any","day","few","big","end","far","run","set","try","ask","put","use","add","ago","air","arm","art","bad","bed","bit","box","bus","buy","car","cut","cup","die","dog","dry","ear","eat","egg","eye","fan","fit","fly","fun","gas","gun","hat","hit","hot","ice","job","joy","key","kid","law","leg","lie","lip","log","lot","low","map","mix","net","nut","odd","oil","pay","pen","pet","pie","pin","pop","pot","red","row","sad","sea","sir","sit","six","sky","son","sun","ten","tie","tip","top","war","wet","win","yes","yet"],
@@ -259,13 +266,14 @@ function BattleGame({lang,onMenu,userId}){
   }, []);
 
   const setupConn = useCallback((conn, isHost) => {
-    conn.on('open', () => {
+    const onOpen = () => {
       if(isHost) {
         const w1 = getWord(Math.random()<0.3); const w2 = getWord(Math.random()<0.3);
         conn.send({type:'init', w1, w2});
         startOnlineGame(true, w1, w2, "상대방");
       }
-    });
+    };
+    if(conn.open) { onOpen(); } else { conn.on('open', onOpen); }
     conn.on('data', (data) => {
       if(data.type === 'init' && !isHost) {
         startOnlineGame(false, data.w2, data.w1, "방장");
@@ -292,17 +300,20 @@ function BattleGame({lang,onMenu,userId}){
     setRoomCode(code); setPhase("waiting");
     const peer = new Peer('jbu-type-' + code);
     peer.on('connection', c => { connRef.current = c; setupConn(c, true); });
+    peer.on('error', e => { console.error('Peer error:', e); if(e.type==='unavailable-id'){alert('방 코드가 이미 사용 중입니다. 다시 시도해주세요.');cleanup();setPhase("select")} });
     peerRef.current = peer;
   };
 
   const joinGame = () => {
     if(!joinCode.trim()) return;
+    setPhase("waiting");
     const peer = new Peer();
     peer.on('open', () => {
-      const conn = peer.connect('jbu-type-' + joinCode.trim());
+      const conn = peer.connect('jbu-type-' + joinCode.trim(), {reliable: true});
       connRef.current = conn;
       setupConn(conn, false);
     });
+    peer.on('error', e => { console.error('Peer error:', e); alert('연결 실패: '+e.type); cleanup(); setPhase("select"); });
     peerRef.current = peer;
   };
 
