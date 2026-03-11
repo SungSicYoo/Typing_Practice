@@ -279,8 +279,8 @@ function BattleGame({lang,onMenu,userId}){
           const a=upd[i],b=upd[j];if(a.fromPlayer===b.fromPlayer)continue;
           const ax=a.fromPlayer?50+a.progress*700:750-a.progress*700;
           const bx=b.fromPlayer?50+b.progress*700:750-b.progress*700;
-          const ay=300-150*Math.sin(Math.PI*a.progress);
-          const by=300-150*Math.sin(Math.PI*b.progress);
+          const ay=300+150*Math.sin(Math.PI*a.progress);
+          const by=300+150*Math.sin(Math.PI*b.progress);
           if(Math.sqrt((ax-bx)**2+(ay-by)**2)<35){
             setExplosions(ex=>[...ex,{id:Math.random(),x:(ax+bx)/2,y:(ay+by)/2,t:now}]);
             if(a.power>1&&b.power<=1){a.power--;toRm.add(j)}
@@ -483,4 +483,5 @@ function App(){
 ReactDOM.render(React.createElement(App),document.getElementById("root"));
 </script>
 </body>
+
 </html>
