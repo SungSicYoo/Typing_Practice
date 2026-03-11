@@ -9,7 +9,6 @@
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
-<script src="https://unpkg.com/mqtt@5.10.3/dist/mqtt.min.js"></script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#0a0a1a;overflow-y:auto;font-family:'Noto Sans KR','IBM Plex Mono',sans-serif}
@@ -196,7 +195,7 @@ if(gameOver)return React.createElement("div",{style:{display:"flex",flexDirectio
 return React.createElement("div",{style:{display:"flex",flexDirection:"column",alignItems:"center",gap:"16px",height:"calc(100vh - 40px)",padding:"20px"},onClick:()=>iR.current?.focus()},React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",width:"100%",maxWidth:"500px",padding:"6px 14px",background:"#12122a",borderRadius:"8px",border:"1px solid #2a2a4a"}},React.createElement("div",{style:{display:"flex",gap:"12px",alignItems:"center"}},React.createElement("span",{style:{color:"#f1c40f",fontWeight:700,fontFamily:"'IBM Plex Mono',monospace"}},"⭐"+score.toLocaleString()),React.createElement("span",{style:{color:"#9b59b6",fontWeight:600,fontSize:"13px"}},"Lv."+level),combo>1&&React.createElement("span",{style:{color:"#e67e22",fontWeight:700,fontSize:"13px"}},combo+"x")),React.createElement("div",{style:{display:"flex",gap:"3px"}},Array.from({length:3}).map((_,i)=>React.createElement("span",{key:i,style:{fontSize:"18px",opacity:i<lives?1:.2}},i<lives?"💜":"🖤"))),React.createElement("button",{onClick:onMenu,className:"tb",style:{padding:"5px 10px",borderRadius:"6px",border:"1px solid #2a2a4a",background:"#12122a",color:"#8888aa",fontSize:"10px",cursor:"pointer"}},"메뉴")),React.createElement("div",{style:{width:"100%",maxWidth:"500px",height:"8px",background:"#1a1a3a",borderRadius:"4px",overflow:"hidden"}},React.createElement("div",{style:{width:pct+"%",height:"100%",background:bc,borderRadius:"4px",transition:"width .05s linear"}})),React.createElement("div",{style:{flex:1,display:"flex",alignItems:"center",justifyContent:"center",width:"100%",maxWidth:"500px",background:flash==="hit"?"#2ecc7122":flash==="miss"?"#e74c3c22":"#0f0f23",borderRadius:"16px",border:"1px solid #2a2a4a",transition:"background .15s"}},React.createElement("div",{style:{fontSize:word.length>8?"36px":"48px",fontWeight:900,color:"#fff",fontFamily:"'IBM Plex Mono','Noto Sans KR',monospace",letterSpacing:"4px",textAlign:"center",padding:"20px"}},word.split("").map((ch,i)=>{let c="#fff";if(i<input.length)c=input[i]===ch?"#2ecc71":"#e74c3c";return React.createElement("span",{key:i,style:{color:c}},ch)}))),React.createElement("input",{ref:iR,value:input,onChange:e=>setInput(e.target.value),onKeyDown:hKD,placeholder:"타이핑 → 스페이스",autoFocus:true,style:{width:"100%",maxWidth:"500px",padding:"14px 20px",borderRadius:"10px",border:"2px solid #f39c1233",background:"#0f0f23",color:"#fff",fontSize:"22px",fontFamily:"'IBM Plex Mono','Noto Sans KR',monospace",outline:"none",textAlign:"center"}}))}
 
 
-/* ═══ CANNON BATTLE GAME (AI + MQTT RELAY ONLINE) ═══ */
+/* ═══ CANNON BATTLE GAME (AI + ntfy.sh SSE RELAY ONLINE) ═══ */
 const BATTLE_WORDS={en:{normal:["the","and","for","you","are","was","his","her","can","had","one","all","day","get","how","new","now","old","see","two","way","who","did","got","let","run","set","try","ask","put","use","about","after","again","along","angry","apart","avoid","basic","beach","begin","below","board","brain","brand","brave","bread","break","bring","broad","brown","build","cause","chain","chair","cheap","check","chief","child","claim","class","clean","clear","climb","close","cloud","coast","color","count","could","court","cover","crash","crazy","cream","cross","crowd","dance","death","draft","drama","dream","dress","drink","drive","eight","empty","enemy","enjoy","enter","equal","error","essay","event","every","exact","exist","extra","faith","false","fault","field","fight","final","floor","focus","force","found","frame","fresh","front","fruit","grace","grade","grand","grant","grass","great","green","group","guard","guess","guide","happy","heart","heavy","horse","hotel","house","human","ideal","image","index","inner","input","issue","joint","judge","known","labor","large","later","laugh","learn","legal","level","light","limit","local","lower","lucky","lunch","magic","major","match","metal","might","minor","model","month","moral","mouse","mouth","movie","music","nerve","never","night","noise","north","novel","nurse","ocean","offer","often","order","other","owner","paint","paper","party","peace","phone","photo","piece","place","plain","plane","plant","plate","point","pound","power","press","price","pride","prime","print","prize","proof","proud","prove","queen","quick","quiet","quite","radio","raise","range","rapid","reach","ready","right","river","robot","rough","round","route","royal","rural","scale","scene","score","sense","serve","seven","shape","share","sharp","sheet","shift","shine","shirt","shock","shore","short","sight","since","sleep","slide","small","smart","smell","smile","smoke","solid","solve","sorry","south","space","speak","speed","spend","split","sport","staff","stage","stand","start","state","steal","steam","steel","stick","still","stock","stone","store","storm","story","stuck","study","stuff","style","sugar","super","sweet","swing","table","taste","teach","theme","thick","thing","think","third","those","three","throw","title","today","total","touch","tough","tower","track","trade","trail","train","treat","trend","trial","trick","truck","truly","trust","truth","twice","uncle","under","union","unite","until","upper","upset","urban","usual","value","video","virus","visit","voice","waste","watch","water","wheel","where","which","while","white","whole","woman","world","worry","worse","worst","worth","would","write","wrong","young"],special:["absolutely","accomplish","background","basketball","battlefield","capability","capitalize","celebrated","changeable","characters","checkpoint","classified","commission","communicate","completely","comprehend","compromise","confidence","connection","conspiracy","contradict","contribute","controller","coordinate","correspond","crossroads","curriculum","decoration","delightful","department","developing","dictionary","difficulty","dimensions","discipline","discovered","documented","downstream","earthquake","elementary","encourages","engagement","enterprise","enthusiasm","especially","everything","everywhere","excellence","experience","expression","fascinated","flashlight","foundation","friendship","generation","government","guaranteed","guidelines","handwriting","healthcare","highlights","horizontal","identifies","illustrate","impossible","incredibly","indication","individual","inevitable","influenced","innovation","instrument","integrated","interested","introduced","investment","journalism","kilometers","laboratory","leadership","limitation","literature","management","meaningful","microscope","motivation","multiplied","navigation","newsletter","obligation","occupation","opposition","outrageous","parliament","particular","percentage","performing","permission","persistent","personally","philosophy","photograph","plantation","playground","politician","population","possession","prediction","previously","priorities","production","profession","programmer","projection","prosecutor","prosperity","punishment","quarantine","reasonable","recognized","recreation","regulation","relaxation","remarkable","remembered","renovation","reputation","resistance","resolution","restaurant","revolution","satisfying","screenplay","separation","settlement","smartphone","soundtrack","specialist","strawberry","strengthen","structural","subsequent","successful","suggestion","supervisor","surrounded","suspicious","technology","television","themselves","tournament","transition","tremendous","ultimately","understand","unemployed","university","vegetables","volleyball","watermelon","wheelchair","wilderness","youngsters"]},kr:{normal:["나","너","우리","사람","학교","회사","가다","오다","하다","있다","없다","보다","알다","좋다","크다","작다","많다","먹다","말","일","때","물","산","길","집","문","밤","봄","꽃","달","별","해","비","눈","바람","돌","불","땅","교육","문화","경제","사회","과학","기술","건강","가족","친구","미래","역사","시간","공간","마음","생각","변화","성장","노력","발전","계획","도시","나라","전통","국민","정부","자유","평등","행복","평화","산업","기업","투자","시장","고객","광고","병원","의사","치료","방송","신문","영화","음악","미술","감독","배우","가수","여행","관광","축제","예술","수학","물리","화학","생물","컴퓨터","인터넷","데이터","시스템"],special:["프로그래밍","인공지능","데이터베이스","알고리즘","운영체제","네트워크","사이버보안","클라우드컴퓨팅","블록체인","머신러닝","자율주행","사물인터넷","증강현실","가상현실","빅데이터","전자상거래","스타트업","지식재산권","산학협력","연구개발","생명공학","나노기술","우주항공","신재생에너지","전기자동차","로봇공학","양자컴퓨터","환경오염","기후변화","지속가능발전","소프트웨어공학","정보통신기술","자연어처리","컴퓨터비전","데이터마이닝"]}};
 function isSpecWord(w,lang){return lang==="kr"?w.length>=5:w.length>=10}
 
@@ -214,7 +213,7 @@ function BattleGame({lang,onMenu,userId}){
   const[explosions,setExplosions]=useState([]);
   const[winner,setWinner]=useState(null);
 
-  // MQTT Relay States
+  // ntfy.sh SSE Relay States (HTTPS 443, no library needed)
   const[roomCode,setRoomCode]=useState("");
   const[joinCode,setJoinCode]=useState("");
   const[connStatus,setConnStatus]=useState("");
@@ -222,9 +221,10 @@ function BattleGame({lang,onMenu,userId}){
   const iR=useRef(null);const fR=useRef(null);const aiTR=useRef(null);
   const pbR=useRef(10);const ebR=useRef(10);const projR=useRef([]);
   const winRef=useRef(null);
-  const mqttRef=useRef(null);const topicRef=useRef('');
+  const esRef=useRef(null);const topicRef=useRef('');
   const myIdRef=useRef('p_'+Math.random().toString(36).substr(2,8));
   const joinTimerRef=useRef(null);
+  const initRecvRef=useRef(false);
   
   projR.current=projs;pbR.current=pBlocks;ebR.current=eBlocks;winRef.current=winner;
 
@@ -236,16 +236,17 @@ function BattleGame({lang,onMenu,userId}){
     setProjs(prev=>[...prev,{id:Date.now()+Math.random(),fromPlayer,power:pw,startTime:Date.now(),duration:2500,word}]);
   },[lang]);
 
-  const mqttSend=useCallback((data)=>{
-    if(mqttRef.current&&mqttRef.current.connected){
-      mqttRef.current.publish(topicRef.current,JSON.stringify({...data,_s:myIdRef.current}),{qos:0});
-    }
+  const RELAY='https://ntfy.sh';
+
+  const relaySend=useCallback((data)=>{
+    const t=topicRef.current;if(!t)return;
+    fetch(RELAY+'/'+t,{method:'POST',body:JSON.stringify({...data,_s:myIdRef.current})}).catch(()=>{});
   },[]);
 
   const cleanup=useCallback(()=>{
     clearTimeout(aiTR.current);
     if(joinTimerRef.current){clearInterval(joinTimerRef.current);joinTimerRef.current=null}
-    if(mqttRef.current){try{mqttRef.current.end(true)}catch(e){}mqttRef.current=null}
+    if(esRef.current){try{esRef.current.close()}catch(e){}esRef.current=null}
   },[]);
 
   // ── AI ──
@@ -265,9 +266,7 @@ function BattleGame({lang,onMenu,userId}){
     setTimeout(()=>startAI(),1000);
   },[newWords,startAI]);
 
-  // ── MQTT RELAY ONLINE GAME ──
-  const BROKERS=['wss://broker.hivemq.com:8884/mqtt','wss://broker.emqx.io:8084/mqtt'];
-
+  // ── ntfy.sh SSE RELAY ONLINE GAME ──
   const startOnlineGame = useCallback((isHost, w1, w2, opStr) => {
     setMode("online"); setOpName(opStr);
     setPBlocks(10); setEBlocks(10); pbR.current=10; ebR.current=10;
@@ -276,47 +275,45 @@ function BattleGame({lang,onMenu,userId}){
     setPhase("playing");
   }, []);
 
-  const connectBroker = useCallback((code, isHost, brokerIdx=0) => {
-    if(brokerIdx>=BROKERS.length){alert('모든 서버 연결 실패. 네트워크를 확인해주세요.');setPhase("select");return}
-    const topic='jbu-type-battle/'+code;
+  const connectRelay = useCallback((code, isHost) => {
+    const topic='jbu-battle-'+code;
     topicRef.current=topic;
-    setConnStatus(isHost?'서버 연결 중...':'서버 연결 중...');
+    initRecvRef.current=false;
+    setConnStatus('서버 연결 중...');
 
-    const client=mqtt.connect(BROKERS[brokerIdx],{
-      clientId:'jbu_'+myIdRef.current+'_'+Date.now(),
-      clean:true,connectTimeout:6000,reconnectPeriod:0
-    });
-    mqttRef.current=client;
+    const es=new EventSource(RELAY+'/'+topic+'/sse?since=10s');
+    esRef.current=es;
 
-    client.on('connect',()=>{
-      client.subscribe(topic,{qos:1},()=>{
-        if(isHost){
-          setConnStatus('상대방 대기 중...');
-        }else{
-          setConnStatus('방에 참가 중...');
-          const sendJoin=()=>{
-            if(mqttRef.current&&mqttRef.current.connected){
-              mqttRef.current.publish(topic,JSON.stringify({type:'join',_s:myIdRef.current}),{qos:1});
-            }
-          };
-          sendJoin();
-          joinTimerRef.current=setInterval(sendJoin,1500);
-        }
-      });
+    es.addEventListener('open',()=>{
+      if(isHost){
+        setConnStatus('✅ 연결 완료! 상대방 대기 중...');
+      }else{
+        setConnStatus('✅ 연결 완료! 참가 요청 중...');
+        const sendJoin=()=>{
+          fetch(RELAY+'/'+topic,{method:'POST',body:JSON.stringify({type:'join',_s:myIdRef.current})}).catch(()=>{});
+        };
+        sendJoin();
+        joinTimerRef.current=setInterval(sendJoin,1200);
+      }
     });
 
-    client.on('message',(t,msg)=>{
+    es.addEventListener('message',(e)=>{
       try{
-        const data=JSON.parse(msg.toString());
+        const ev=JSON.parse(e.data);
+        if(ev.event!=='message')return;
+        const data=JSON.parse(ev.message);
         if(data._s===myIdRef.current)return;
+
         if(data.type==='join'&&isHost){
           if(joinTimerRef.current){clearInterval(joinTimerRef.current);joinTimerRef.current=null}
           const w1=getWord(Math.random()<0.3),w2=getWord(Math.random()<0.3);
-          client.publish(topic,JSON.stringify({type:'init',w1,w2,_s:myIdRef.current}),{qos:1});
-          setTimeout(()=>client.publish(topic,JSON.stringify({type:'init',w1,w2,_s:myIdRef.current}),{qos:1}),500);
+          const initMsg=JSON.stringify({type:'init',w1,w2,_s:myIdRef.current});
+          fetch(RELAY+'/'+topic,{method:'POST',body:initMsg}).catch(()=>{});
+          setTimeout(()=>fetch(RELAY+'/'+topic,{method:'POST',body:initMsg}).catch(()=>{}),400);
           startOnlineGame(true,w1,w2,"상대방");
         }
-        else if(data.type==='init'&&!isHost){
+        else if(data.type==='init'&&!isHost&&!initRecvRef.current){
+          initRecvRef.current=true;
           if(joinTimerRef.current){clearInterval(joinTimerRef.current);joinTimerRef.current=null}
           startOnlineGame(false,data.w2,data.w1,"방장");
         }
@@ -336,18 +333,11 @@ function BattleGame({lang,onMenu,userId}){
         else if(data.type==='leave'){
           alert("상대방이 나갔습니다.");cleanup();setPhase("select");
         }
-      }catch(e){}
+      }catch(ex){}
     });
 
-    client.on('error',(e)=>{
-      console.error('MQTT broker '+brokerIdx+' error:',e);
-      try{client.end(true)}catch(ex){}
-      mqttRef.current=null;
-      connectBroker(code,isHost,brokerIdx+1);
-    });
-
-    client.on('close',()=>{
-      if(mqttRef.current===client)mqttRef.current=null;
+    es.addEventListener('error',()=>{
+      setConnStatus('⚠️ 연결 끊김 - 자동 재연결 중...');
     });
 
   },[getWord,startOnlineGame,lang,userId,cleanup]);
@@ -355,13 +345,13 @@ function BattleGame({lang,onMenu,userId}){
   const hostGame = () => {
     const code=Math.floor(1000+Math.random()*9000).toString();
     setRoomCode(code);setPhase("waiting");
-    connectBroker(code,true);
+    connectRelay(code,true);
   };
 
   const joinGame = () => {
     if(!joinCode.trim())return;
-    setPhase("waiting");
-    connectBroker(joinCode.trim(),false);
+    setRoomCode('');setPhase("waiting");
+    connectRelay(joinCode.trim(),false);
   };
 
   // ── GAME LOOP ──
@@ -399,8 +389,8 @@ function BattleGame({lang,onMenu,userId}){
         setPBlocks(b=>{
            const n=Math.max(0,b-dmgToP);pbR.current=n;
            if(mode==="online") {
-             mqttSend({type:'syncBlk', blocks: n});
-             if(n<=0) mqttSend({type:'win'});
+             relaySend({type:'syncBlk', blocks: n});
+             if(n<=0) relaySend({type:'win'});
            }
            return n;
         });
@@ -418,7 +408,7 @@ function BattleGame({lang,onMenu,userId}){
       if(userId&&mode==="ai")updateBattleRank(userId,lang,false); // online loss is handled via 'win' event
     }
     if(phase==="playing")fR.current=requestAnimationFrame(gameLoop);
-  },[phase,userId,lang,mode,cleanup,mqttSend]);
+  },[phase,userId,lang,mode,cleanup,relaySend]);
 
   useEffect(()=>{if(phase==="playing"){fR.current=requestAnimationFrame(gameLoop);return()=>{cancelAnimationFrame(fR.current);clearTimeout(aiTR.current)}}},[phase,gameLoop]);
   useEffect(()=>{if(phase==="playing"&&iR.current)iR.current.focus()},[phase]);
@@ -427,17 +417,17 @@ function BattleGame({lang,onMenu,userId}){
     const t=pInput.trim();if(!t||t!==pWord)return setPInput("");
     const pw = isSpecWord(pWord,lang)?2:1;
     fireProj(true,pWord, pw);
-    if(mode==="online") mqttSend({type:'shot', word: pWord, power: pw});
+    if(mode==="online") relaySend({type:'shot', word: pWord, power: pw});
     
     const nw=getWord(Math.random()<0.3);setPWord(nw);
-    if(mode==="online") mqttSend({type:'syncWord', word: nw});
+    if(mode==="online") relaySend({type:'syncWord', word: nw});
     setPInput("");
-  },[pInput,pWord,fireProj,getWord,mode,lang,mqttSend]);
+  },[pInput,pWord,fireProj,getWord,mode,lang,relaySend]);
 
   const hKD=useCallback(e=>{
-    if(e.key==="Escape"){if(mode==="online")mqttSend({type:'leave'});cleanup();onMenu();return}
+    if(e.key==="Escape"){if(mode==="online")relaySend({type:'leave'});cleanup();onMenu();return}
     if(e.key===" "||e.key==="Enter"){e.preventDefault();submit()}
-  },[submit,onMenu,cleanup,mode,mqttSend]);
+  },[submit,onMenu,cleanup,mode,relaySend]);
 
   // ═══ SELECT SCREEN ═══
   if(phase==="select"){
@@ -472,8 +462,8 @@ function BattleGame({lang,onMenu,userId}){
       roomCode&&React.createElement("p",{style:{color:"#6a6a8a",fontSize:"13px"}},"친구에게 아래 4자리 번호를 알려주세요."),
       roomCode&&React.createElement("div",{style:{fontSize:"48px",fontWeight:900,color:"#f39c12",letterSpacing:"4px",padding:"20px",background:"#1a1a3a",borderRadius:"12px",border:"2px dashed #f39c1255"}},roomCode),
       React.createElement("div",{style:{color:"#3498db",fontSize:"14px",marginTop:"10px",animation:"pulse 2s infinite"}},connStatus||"연결 중..."),
-      React.createElement("div",{style:{color:"#4a4a6a",fontSize:"11px",marginTop:"4px"}},"📡 MQTT 릴레이 서버 (방화벽 우회)"),
-      React.createElement("button",{onClick:()=>{mqttSend({type:'leave'});cleanup();setPhase("select")},style:{marginTop:"20px",padding:"8px 20px",borderRadius:"8px",border:"1px solid #3a3a5a",background:"transparent",color:"#888",fontSize:"13px",cursor:"pointer"}},"취소하고 돌아가기")
+      React.createElement("div",{style:{color:"#4a4a6a",fontSize:"11px",marginTop:"4px"}},"📡 HTTPS 릴레이 (포트443, 방화벽 우회)"),
+      React.createElement("button",{onClick:()=>{relaySend({type:'leave'});cleanup();setPhase("select")},style:{marginTop:"20px",padding:"8px 20px",borderRadius:"8px",border:"1px solid #3a3a5a",background:"transparent",color:"#888",fontSize:"13px",cursor:"pointer"}},"취소하고 돌아가기")
     );
   }
 
@@ -485,7 +475,7 @@ function BattleGame({lang,onMenu,userId}){
   return React.createElement("div",{style:{display:"flex",flexDirection:"column",gap:"8px",height:"calc(100vh - 40px)"},onClick:()=>iR.current?.focus()},
     React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 14px",background:"#12122a",borderRadius:"8px",border:"1px solid #2a2a4a"}},
       React.createElement("div",{style:{display:"flex",alignItems:"center",gap:"8px"}},React.createElement("span",{style:{fontSize:"14px"}},"🏰"),React.createElement("span",{style:{color:"#3498db",fontWeight:700,fontSize:"13px"}},userId||"나"),React.createElement("span",{style:{color:"#3498db",fontSize:"12px"}},pBlocks+"/10"),React.createElement("div",{style:{width:"60px",height:"5px",background:"#1a1a3a",borderRadius:"3px",overflow:"hidden"}},React.createElement("div",{style:{width:(pBlocks/10*100)+"%",height:"100%",background:"#3498db",transition:"width .3s"}}))),
-      React.createElement("button",{onClick:()=>{if(mode==="online")mqttSend({type:'leave'});cleanup();onMenu()},className:"tb",style:{padding:"5px 10px",borderRadius:"6px",border:"1px solid #2a2a4a",background:"#12122a",color:"#8888aa",fontSize:"10px",cursor:"pointer"}},"← 메뉴"),
+      React.createElement("button",{onClick:()=>{if(mode==="online")relaySend({type:'leave'});cleanup();onMenu()},className:"tb",style:{padding:"5px 10px",borderRadius:"6px",border:"1px solid #2a2a4a",background:"#12122a",color:"#8888aa",fontSize:"10px",cursor:"pointer"}},"← 메뉴"),
       React.createElement("div",{style:{display:"flex",alignItems:"center",gap:"8px"}},React.createElement("div",{style:{width:"60px",height:"5px",background:"#1a1a3a",borderRadius:"3px",overflow:"hidden"}},React.createElement("div",{style:{width:(eBlocks/10*100)+"%",height:"100%",background:"#e74c3c",transition:"width .3s"}})),React.createElement("span",{style:{color:"#e74c3c",fontSize:"12px"}},eBlocks+"/10"),React.createElement("span",{style:{color:"#e74c3c",fontWeight:700,fontSize:"13px"}},opName),React.createElement("span",{style:{fontSize:"14px"}},mode==="ai"?"🤖":"👤"))
     ),
     React.createElement("div",{style:{flex:1,position:"relative",background:"linear-gradient(180deg,#0a0a2a,#0f0f2a 60%,#1a1a2a 85%,#2a1a0a)",borderRadius:"10px",border:"1px solid #2a2a4a",overflow:"hidden",minHeight:"320px"}},
