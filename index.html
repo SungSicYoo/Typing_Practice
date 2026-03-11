@@ -195,7 +195,7 @@ if(gameOver)return React.createElement("div",{style:{display:"flex",flexDirectio
 return React.createElement("div",{style:{display:"flex",flexDirection:"column",alignItems:"center",gap:"16px",height:"calc(100vh - 40px)",padding:"20px"},onClick:()=>iR.current?.focus()},React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",width:"100%",maxWidth:"500px",padding:"6px 14px",background:"#12122a",borderRadius:"8px",border:"1px solid #2a2a4a"}},React.createElement("div",{style:{display:"flex",gap:"12px",alignItems:"center"}},React.createElement("span",{style:{color:"#f1c40f",fontWeight:700,fontFamily:"'IBM Plex Mono',monospace"}},"⭐"+score.toLocaleString()),React.createElement("span",{style:{color:"#9b59b6",fontWeight:600,fontSize:"13px"}},"Lv."+level),combo>1&&React.createElement("span",{style:{color:"#e67e22",fontWeight:700,fontSize:"13px"}},combo+"x")),React.createElement("div",{style:{display:"flex",gap:"3px"}},Array.from({length:3}).map((_,i)=>React.createElement("span",{key:i,style:{fontSize:"18px",opacity:i<lives?1:.2}},i<lives?"💜":"🖤"))),React.createElement("button",{onClick:onMenu,className:"tb",style:{padding:"5px 10px",borderRadius:"6px",border:"1px solid #2a2a4a",background:"#12122a",color:"#8888aa",fontSize:"10px",cursor:"pointer"}},"메뉴")),React.createElement("div",{style:{width:"100%",maxWidth:"500px",height:"8px",background:"#1a1a3a",borderRadius:"4px",overflow:"hidden"}},React.createElement("div",{style:{width:pct+"%",height:"100%",background:bc,borderRadius:"4px",transition:"width .05s linear"}})),React.createElement("div",{style:{flex:1,display:"flex",alignItems:"center",justifyContent:"center",width:"100%",maxWidth:"500px",background:flash==="hit"?"#2ecc7122":flash==="miss"?"#e74c3c22":"#0f0f23",borderRadius:"16px",border:"1px solid #2a2a4a",transition:"background .15s"}},React.createElement("div",{style:{fontSize:word.length>8?"36px":"48px",fontWeight:900,color:"#fff",fontFamily:"'IBM Plex Mono','Noto Sans KR',monospace",letterSpacing:"4px",textAlign:"center",padding:"20px"}},word.split("").map((ch,i)=>{let c="#fff";if(i<input.length)c=input[i]===ch?"#2ecc71":"#e74c3c";return React.createElement("span",{key:i,style:{color:c}},ch)}))),React.createElement("input",{ref:iR,value:input,onChange:e=>setInput(e.target.value),onKeyDown:hKD,placeholder:"타이핑 → 스페이스",autoFocus:true,style:{width:"100%",maxWidth:"500px",padding:"14px 20px",borderRadius:"10px",border:"2px solid #f39c1233",background:"#0f0f23",color:"#fff",fontSize:"22px",fontFamily:"'IBM Plex Mono','Noto Sans KR',monospace",outline:"none",textAlign:"center"}}))}
 
 
-/* ═══ CANNON BATTLE GAME (AI + ntfy.sh SSE RELAY ONLINE) ═══ */
+/* ═══ CANNON BATTLE GAME (AI + HTTPS POLLING RELAY ONLINE) ═══ */
 const BATTLE_WORDS={en:{normal:["the","and","for","you","are","was","his","her","can","had","one","all","day","get","how","new","now","old","see","two","way","who","did","got","let","run","set","try","ask","put","use","about","after","again","along","angry","apart","avoid","basic","beach","begin","below","board","brain","brand","brave","bread","break","bring","broad","brown","build","cause","chain","chair","cheap","check","chief","child","claim","class","clean","clear","climb","close","cloud","coast","color","count","could","court","cover","crash","crazy","cream","cross","crowd","dance","death","draft","drama","dream","dress","drink","drive","eight","empty","enemy","enjoy","enter","equal","error","essay","event","every","exact","exist","extra","faith","false","fault","field","fight","final","floor","focus","force","found","frame","fresh","front","fruit","grace","grade","grand","grant","grass","great","green","group","guard","guess","guide","happy","heart","heavy","horse","hotel","house","human","ideal","image","index","inner","input","issue","joint","judge","known","labor","large","later","laugh","learn","legal","level","light","limit","local","lower","lucky","lunch","magic","major","match","metal","might","minor","model","month","moral","mouse","mouth","movie","music","nerve","never","night","noise","north","novel","nurse","ocean","offer","often","order","other","owner","paint","paper","party","peace","phone","photo","piece","place","plain","plane","plant","plate","point","pound","power","press","price","pride","prime","print","prize","proof","proud","prove","queen","quick","quiet","quite","radio","raise","range","rapid","reach","ready","right","river","robot","rough","round","route","royal","rural","scale","scene","score","sense","serve","seven","shape","share","sharp","sheet","shift","shine","shirt","shock","shore","short","sight","since","sleep","slide","small","smart","smell","smile","smoke","solid","solve","sorry","south","space","speak","speed","spend","split","sport","staff","stage","stand","start","state","steal","steam","steel","stick","still","stock","stone","store","storm","story","stuck","study","stuff","style","sugar","super","sweet","swing","table","taste","teach","theme","thick","thing","think","third","those","three","throw","title","today","total","touch","tough","tower","track","trade","trail","train","treat","trend","trial","trick","truck","truly","trust","truth","twice","uncle","under","union","unite","until","upper","upset","urban","usual","value","video","virus","visit","voice","waste","watch","water","wheel","where","which","while","white","whole","woman","world","worry","worse","worst","worth","would","write","wrong","young"],special:["absolutely","accomplish","background","basketball","battlefield","capability","capitalize","celebrated","changeable","characters","checkpoint","classified","commission","communicate","completely","comprehend","compromise","confidence","connection","conspiracy","contradict","contribute","controller","coordinate","correspond","crossroads","curriculum","decoration","delightful","department","developing","dictionary","difficulty","dimensions","discipline","discovered","documented","downstream","earthquake","elementary","encourages","engagement","enterprise","enthusiasm","especially","everything","everywhere","excellence","experience","expression","fascinated","flashlight","foundation","friendship","generation","government","guaranteed","guidelines","handwriting","healthcare","highlights","horizontal","identifies","illustrate","impossible","incredibly","indication","individual","inevitable","influenced","innovation","instrument","integrated","interested","introduced","investment","journalism","kilometers","laboratory","leadership","limitation","literature","management","meaningful","microscope","motivation","multiplied","navigation","newsletter","obligation","occupation","opposition","outrageous","parliament","particular","percentage","performing","permission","persistent","personally","philosophy","photograph","plantation","playground","politician","population","possession","prediction","previously","priorities","production","profession","programmer","projection","prosecutor","prosperity","punishment","quarantine","reasonable","recognized","recreation","regulation","relaxation","remarkable","remembered","renovation","reputation","resistance","resolution","restaurant","revolution","satisfying","screenplay","separation","settlement","smartphone","soundtrack","specialist","strawberry","strengthen","structural","subsequent","successful","suggestion","supervisor","surrounded","suspicious","technology","television","themselves","tournament","transition","tremendous","ultimately","understand","unemployed","university","vegetables","volleyball","watermelon","wheelchair","wilderness","youngsters"]},kr:{normal:["나","너","우리","사람","학교","회사","가다","오다","하다","있다","없다","보다","알다","좋다","크다","작다","많다","먹다","말","일","때","물","산","길","집","문","밤","봄","꽃","달","별","해","비","눈","바람","돌","불","땅","교육","문화","경제","사회","과학","기술","건강","가족","친구","미래","역사","시간","공간","마음","생각","변화","성장","노력","발전","계획","도시","나라","전통","국민","정부","자유","평등","행복","평화","산업","기업","투자","시장","고객","광고","병원","의사","치료","방송","신문","영화","음악","미술","감독","배우","가수","여행","관광","축제","예술","수학","물리","화학","생물","컴퓨터","인터넷","데이터","시스템"],special:["프로그래밍","인공지능","데이터베이스","알고리즘","운영체제","네트워크","사이버보안","클라우드컴퓨팅","블록체인","머신러닝","자율주행","사물인터넷","증강현실","가상현실","빅데이터","전자상거래","스타트업","지식재산권","산학협력","연구개발","생명공학","나노기술","우주항공","신재생에너지","전기자동차","로봇공학","양자컴퓨터","환경오염","기후변화","지속가능발전","소프트웨어공학","정보통신기술","자연어처리","컴퓨터비전","데이터마이닝"]}};
 function isSpecWord(w,lang){return lang==="kr"?w.length>=5:w.length>=10}
 
@@ -213,7 +213,7 @@ function BattleGame({lang,onMenu,userId}){
   const[explosions,setExplosions]=useState([]);
   const[winner,setWinner]=useState(null);
 
-  // ntfy.sh SSE Relay States (HTTPS 443, no library needed)
+  // HTTPS Polling Relay (ntfy.sh, standard GET/POST only)
   const[roomCode,setRoomCode]=useState("");
   const[joinCode,setJoinCode]=useState("");
   const[connStatus,setConnStatus]=useState("");
@@ -221,11 +221,12 @@ function BattleGame({lang,onMenu,userId}){
   const iR=useRef(null);const fR=useRef(null);const aiTR=useRef(null);
   const pbR=useRef(10);const ebR=useRef(10);const projR=useRef([]);
   const winRef=useRef(null);
-  const esRef=useRef(null);const topicRef=useRef('');
+  const topicRef=useRef('');const pollRef=useRef(null);
   const myIdRef=useRef('p_'+Math.random().toString(36).substr(2,8));
-  const joinTimerRef=useRef(null);
+  const lastIdRef=useRef('');
   const initRecvRef=useRef(false);
   const hostInitSentRef=useRef(false);
+  const aliveRef=useRef(false);
   
   projR.current=projs;pbR.current=pBlocks;ebR.current=eBlocks;winRef.current=winner;
 
@@ -241,13 +242,13 @@ function BattleGame({lang,onMenu,userId}){
 
   const relaySend=useCallback((data)=>{
     const t=topicRef.current;if(!t)return;
-    fetch(RELAY+'/'+t,{method:'POST',body:JSON.stringify({...data,_s:myIdRef.current})}).catch(()=>{});
+    fetch(RELAY+'/'+t,{method:'POST',body:JSON.stringify({...data,_s:myIdRef.current}),cache:'no-store'}).catch(()=>{});
   },[]);
 
   const cleanup=useCallback(()=>{
     clearTimeout(aiTR.current);
-    if(joinTimerRef.current){clearInterval(joinTimerRef.current);joinTimerRef.current=null}
-    if(esRef.current){try{esRef.current.close()}catch(e){}esRef.current=null}
+    aliveRef.current=false;
+    if(pollRef.current){clearInterval(pollRef.current);pollRef.current=null}
   },[]);
 
   // ── AI ──
@@ -267,7 +268,7 @@ function BattleGame({lang,onMenu,userId}){
     setTimeout(()=>startAI(),1000);
   },[newWords,startAI]);
 
-  // ── ntfy.sh SSE RELAY ONLINE GAME ──
+  // ── HTTPS POLLING RELAY ONLINE GAME ──
   const startOnlineGame = useCallback((isHost, w1, w2, opStr) => {
     setMode("online"); setOpName(opStr);
     setPBlocks(10); setEBlocks(10); pbR.current=10; ebR.current=10;
@@ -276,74 +277,92 @@ function BattleGame({lang,onMenu,userId}){
     setPhase("playing");
   }, []);
 
+  const handleMsg=useCallback((data,isHost)=>{
+    if(data._s===myIdRef.current)return;
+    if(data.type==='join'&&isHost&&!hostInitSentRef.current){
+      hostInitSentRef.current=true;
+      const w1=getWord(Math.random()<0.3),w2=getWord(Math.random()<0.3);
+      const body=JSON.stringify({type:'init',w1,w2,_s:myIdRef.current});
+      fetch(RELAY+'/'+topicRef.current,{method:'POST',body,cache:'no-store'}).catch(()=>{});
+      setTimeout(()=>fetch(RELAY+'/'+topicRef.current,{method:'POST',body,cache:'no-store'}).catch(()=>{}),300);
+      startOnlineGame(true,w1,w2,"상대방");
+    }
+    else if(data.type==='init'&&!isHost&&!initRecvRef.current){
+      initRecvRef.current=true;
+      startOnlineGame(false,data.w2,data.w1,"방장");
+    }
+    else if(data.type==='shot'){
+      setProjs(prev=>[...prev,{id:Date.now()+Math.random(),fromPlayer:false,power:data.power,startTime:Date.now(),duration:2500,word:data.word}]);
+    }
+    else if(data.type==='syncBlk'){
+      setEBlocks(data.blocks);ebR.current=data.blocks;
+    }
+    else if(data.type==='syncWord'){
+      setEWord(data.word);
+    }
+    else if(data.type==='win'){
+      setWinner("enemy");winRef.current="enemy";setPhase("over");cleanup();
+      if(userId)updateBattleRank(userId,lang,false);
+    }
+    else if(data.type==='leave'){
+      alert("상대방이 나갔습니다.");cleanup();setPhase("select");
+    }
+  },[getWord,startOnlineGame,lang,userId,cleanup]);
+
   const connectRelay = useCallback((code, isHost) => {
     const topic='jbu-battle-'+code;
     topicRef.current=topic;
     initRecvRef.current=false;
     hostInitSentRef.current=false;
-    setConnStatus('서버 연결 중...');
+    lastIdRef.current='';
+    aliveRef.current=true;
 
-    const es=new EventSource(RELAY+'/'+topic+'/sse?since=10s');
-    esRef.current=es;
+    // Test connection first
+    setConnStatus('🔌 서버 연결 확인 중...');
+    fetch(RELAY+'/'+topic+'/json?poll=1&since=1s',{cache:'no-store'}).then(r=>{
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      setConnStatus(isHost?'✅ 연결됨! 상대방 대기 중...':'✅ 연결됨! 참가 요청 중...');
 
-    es.addEventListener('open',()=>{
-      if(isHost){
-        setConnStatus('✅ 연결 완료! 상대방 대기 중...');
-      }else{
-        setConnStatus('✅ 연결 완료! 참가 요청 중...');
+      // If joiner, send join messages
+      if(!isHost){
         const sendJoin=()=>{
-          fetch(RELAY+'/'+topic,{method:'POST',body:JSON.stringify({type:'join',_s:myIdRef.current})}).catch(()=>{});
+          if(!aliveRef.current)return;
+          fetch(RELAY+'/'+topic,{method:'POST',body:JSON.stringify({type:'join',_s:myIdRef.current}),cache:'no-store'}).catch(()=>{});
         };
         sendJoin();
-        joinTimerRef.current=setInterval(sendJoin,1200);
+        const jt=setInterval(()=>{if(aliveRef.current&&!initRecvRef.current)sendJoin();else clearInterval(jt)},1000);
       }
+
+      // Start polling for messages (every 250ms)
+      const doPoll=async()=>{
+        if(!aliveRef.current)return;
+        try{
+          const since=lastIdRef.current?lastIdRef.current:'5s';
+          const url=RELAY+'/'+topic+'/json?poll=1&since='+since;
+          const res=await fetch(url,{cache:'no-store'});
+          if(!res.ok)return;
+          const text=await res.text();
+          if(!text.trim())return;
+          const lines=text.trim().split('\n');
+          for(const line of lines){
+            try{
+              const ev=JSON.parse(line);
+              if(ev.id)lastIdRef.current=ev.id;
+              if(ev.event!=='message')continue;
+              const data=JSON.parse(ev.message);
+              handleMsg(data,isHost);
+            }catch(pe){}
+          }
+        }catch(fe){}
+      };
+      pollRef.current=setInterval(doPoll,250);
+
+    }).catch(e=>{
+      setConnStatus('❌ 서버 연결 실패 ('+e.message+')');
+      setTimeout(()=>{if(aliveRef.current)setPhase("select")},3000);
     });
 
-    es.addEventListener('message',(e)=>{
-      try{
-        const ev=JSON.parse(e.data);
-        if(ev.event!=='message')return;
-        const data=JSON.parse(ev.message);
-        if(data._s===myIdRef.current)return;
-
-        if(data.type==='join'&&isHost&&!hostInitSentRef.current){
-          hostInitSentRef.current=true;
-          if(joinTimerRef.current){clearInterval(joinTimerRef.current);joinTimerRef.current=null}
-          const w1=getWord(Math.random()<0.3),w2=getWord(Math.random()<0.3);
-          const initMsg=JSON.stringify({type:'init',w1,w2,_s:myIdRef.current});
-          fetch(RELAY+'/'+topic,{method:'POST',body:initMsg}).catch(()=>{});
-          setTimeout(()=>fetch(RELAY+'/'+topic,{method:'POST',body:initMsg}).catch(()=>{}),400);
-          startOnlineGame(true,w1,w2,"상대방");
-        }
-        else if(data.type==='init'&&!isHost&&!initRecvRef.current){
-          initRecvRef.current=true;
-          if(joinTimerRef.current){clearInterval(joinTimerRef.current);joinTimerRef.current=null}
-          startOnlineGame(false,data.w2,data.w1,"방장");
-        }
-        else if(data.type==='shot'){
-          setProjs(prev=>[...prev,{id:Date.now()+Math.random(),fromPlayer:false,power:data.power,startTime:Date.now(),duration:2500,word:data.word}]);
-        }
-        else if(data.type==='syncBlk'){
-          setEBlocks(data.blocks);ebR.current=data.blocks;
-        }
-        else if(data.type==='syncWord'){
-          setEWord(data.word);
-        }
-        else if(data.type==='win'){
-          setWinner("enemy");winRef.current="enemy";setPhase("over");cleanup();
-          if(userId)updateBattleRank(userId,lang,false);
-        }
-        else if(data.type==='leave'){
-          alert("상대방이 나갔습니다.");cleanup();setPhase("select");
-        }
-      }catch(ex){}
-    });
-
-    es.addEventListener('error',()=>{
-      setConnStatus('⚠️ 연결 끊김 - 자동 재연결 중...');
-    });
-
-  },[getWord,startOnlineGame,lang,userId,cleanup]);
+  },[handleMsg]);
 
   const hostGame = () => {
     const code=Math.floor(1000+Math.random()*9000).toString();
