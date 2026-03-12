@@ -317,50 +317,44 @@ function BattleGame({lang,onMenu,userId}){
     lastIdRef.current='';
     aliveRef.current=true;
 
-    // Test connection first
-    setConnStatus('🔌 서버 연결 확인 중...');
-    fetch(RELAY+'/'+topic+'/json?poll=1&since=1s',{cache:'no-store'}).then(r=>{
-      if(!r.ok)throw new Error('HTTP '+r.status);
-      setConnStatus(isHost?'✅ 연결됨! 상대방 대기 중...':'✅ 연결됨! 참가 요청 중...');
+    setConnStatus(isHost?'✅ 상대방 대기 중...':'✅ 참가 요청 중...');
 
-      // If joiner, send join messages
-      if(!isHost){
-        const sendJoin=()=>{
-          if(!aliveRef.current)return;
-          fetch(RELAY+'/'+topic,{method:'POST',body:JSON.stringify({type:'join',_s:myIdRef.current}),cache:'no-store'}).catch(()=>{});
-        };
-        sendJoin();
-        const jt=setInterval(()=>{if(aliveRef.current&&!initRecvRef.current)sendJoin();else clearInterval(jt)},1000);
-      }
-
-      // Start polling for messages (every 250ms)
-      const doPoll=async()=>{
-        if(!aliveRef.current)return;
-        try{
-          const since=lastIdRef.current?lastIdRef.current:'5s';
-          const url=RELAY+'/'+topic+'/json?poll=1&since='+since;
-          const res=await fetch(url,{cache:'no-store'});
-          if(!res.ok)return;
-          const text=await res.text();
-          if(!text.trim())return;
-          const lines=text.trim().split('\n');
-          for(const line of lines){
-            try{
-              const ev=JSON.parse(line);
-              if(ev.id)lastIdRef.current=ev.id;
-              if(ev.event!=='message')continue;
-              const data=JSON.parse(ev.message);
-              handleMsg(data,isHost);
-            }catch(pe){}
-          }
-        }catch(fe){}
+    // Joiner sends join messages every 2.5s
+    if(!isHost){
+      const sendJoin=()=>{
+        if(!aliveRef.current||initRecvRef.current)return;
+        fetch(RELAY+'/'+topic,{method:'POST',body:JSON.stringify({type:'join',_s:myIdRef.current}),cache:'no-store'}).catch(()=>{});
       };
-      pollRef.current=setInterval(doPoll,250);
+      setTimeout(sendJoin,500);
+      const jt=setInterval(()=>{if(aliveRef.current&&!initRecvRef.current)sendJoin();else clearInterval(jt)},2500);
+    }
 
-    }).catch(e=>{
-      setConnStatus('❌ 서버 연결 실패 ('+e.message+')');
-      setTimeout(()=>{if(aliveRef.current)setPhase("select")},3000);
-    });
+    // Polling with 429 backoff
+    let backoff=0;
+    const doPoll=async()=>{
+      if(!aliveRef.current)return;
+      if(backoff>0){backoff--;return}
+      try{
+        const since=lastIdRef.current?lastIdRef.current:'10s';
+        const url=RELAY+'/'+topic+'/json?poll=1&since='+since;
+        const res=await fetch(url,{cache:'no-store'});
+        if(res.status===429){backoff=4;return}
+        if(!res.ok)return;
+        const text=await res.text();
+        if(!text.trim())return;
+        const lines=text.trim().split('\n');
+        for(const line of lines){
+          try{
+            const ev=JSON.parse(line);
+            if(ev.id)lastIdRef.current=ev.id;
+            if(ev.event!=='message')continue;
+            const data=JSON.parse(ev.message);
+            handleMsg(data,isHost);
+          }catch(pe){}
+        }
+      }catch(fe){}
+    };
+    setTimeout(()=>{if(aliveRef.current)pollRef.current=setInterval(doPoll,800)},isHost?100:1200);
 
   },[handleMsg]);
 
